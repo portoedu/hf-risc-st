@@ -20,7 +20,8 @@ READ_mips = mips-elf-readelf
 OBJ_mips = mips-elf-objcopy
 SIZE_mips = mips-elf-size
 
-GCC_riscv = riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Wall -O2 -c -mstrict-align -ffreestanding -nostdlib -ffixed-s10 -ffixed-s11 -I ./include -DCPU_SPEED=${F_CLK} -DLITTLE_ENDIAN $(CFLAGS_STRIP) #-DDEBUG_PORT #-ffixed-s10 -ffixed-s11 -mno-div -mrvc -fPIC -DDEBUG_PORT
+GCC_riscv = riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Wall -O2 -c -mstrict-align -ffreestanding -nostdlib -ffixed-s10 -ffixed-s11 -I ./include -DCPU_SPEED=${F_CLK} -DLITTLE_ENDIAN $(CFLAGS_STRIP) $(IFTEST)
+#-DDEBUG_PORT #-ffixed-s10 -ffixed-s11 -mno-div -mrvc -fPIC -DDEBUG_PORT
 AS_riscv = riscv32-unknown-elf-as -march=rv32i -mabi=ilp32 #-fPIC
 LD_riscv = riscv32-unknown-elf-ld -melf32lriscv $(LDFLAGS_STRIP)
 DUMP_riscv = riscv32-unknown-elf-objdump -Mno-aliases
@@ -40,7 +41,8 @@ debug: serial
 	cat ${SERIAL_DEV}
 
 crt:
-	$(AS_$(ARCH)) -o crt0.o lib/$(ARCH)/crt0.s
+	#$(AS_$(ARCH)) -o crt0.o -x assembler-with-cpp lib/$(ARCH)/crt0.S
+	$(GCC_$(ARCH)) -o crt0.o -x assembler-with-cpp lib/$(ARCH)/crt0.S
 	$(GCC_$(ARCH)) -o libc.o lib/libc.c
 	$(GCC_$(ARCH)) -o interrupt.o lib/interrupt.c
 	$(GCC_$(ARCH)) -o math.o lib/math.c
@@ -254,8 +256,8 @@ test: crt
 	$(GCC_$(ARCH)) -o test.o app/test.c
 	@$(MAKE) --no-print-directory link
 
-include app/malardalen/malardalen.mak
-include app/powerstone/powerstone.mak
+-include app/malardalen/malardalen.mak
+-include app/powerstone/powerstone.mak
 
 clean:
 	-rm -rf *~ *.o *.elf *.map *.lst *.sec *.cnt *.txt *.bin *.vhd

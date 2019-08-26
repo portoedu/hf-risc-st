@@ -1,0 +1,9 @@
+*.o 
+*a.out 
+*.sec 
+*.bin 
+*.cnt 
+*.elf 
+*.lst 
+*.map 
+*.txt 
