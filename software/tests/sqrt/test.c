@@ -1,49 +1,29 @@
 #include <hf-risc.h>
 #include <hf-unit.h>
 
-extern int failed_tests;
-extern int executed_tests;
-int test_counter=0;
-
-// test principal 
-void sqrt_test();
-
-// funcao sendo testada
+// function under test 
 float sqrt(float arg);
 
-// testes individuais
+// list of individual tests
 void sqrt1_test();
 void sqrt4_test();
 
-// funcoes comuns
-int comp_float(float f1,float f2, char *message){
-	test_counter++;
-	if (!(((f1 - HFUNIT_PRECISION) < f2) && ((f1 + HFUNIT_PRECISION) > f2)))
-	{
-		failed_tests++;
-		HFUNIT_MSG_FAIL(message)
-	}else{
-		HFUNIT_MSG_PASS(message)
-	}
-	executed_tests++;
-}
-
-// test principal
-void sqrt_test(){
+// main test
+void hfunit_run_tests(){
 	sqrt1_test();
 	sqrt4_test();
 }
 
-// descricao do teste xyz
+// place here a nice description for each test
 void sqrt1_test(){
 	float v = sqrt(1.0);
 	float expected = 1.0;
-	comp_float(v,expected, "sqrt(1.0)");
+	hfunit_comp_float(v,expected, "sqrt(1.0)");
 }
 
-// descricao do teste abc
+// place here a nice description for each test
 void sqrt4_test(){
 	float v = sqrt(4.0);
 	float expected = 2.0;
-	comp_float(v,expected, "sqrt(4.0)");
+	hfunit_comp_float(v,expected, "sqrt(4.0)");
 }

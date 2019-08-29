@@ -1,50 +1,31 @@
 #include <hf-risc.h>
 #include <hf-unit.h>
 
-extern int failed_tests;
-extern int executed_tests;
-int test_counter=0;
-
-// test principal
-void sort_test();
-
-// funcao sendo testada
+// function under test
 int sort(int v[], int e);
 
-// testes individuais
+// list of individual tests
 void inorder_test();
 void equal_test();
 
-// funcoes comuns
-int comp_vector(int *v1,int *v2, int size, char* message){
-	test_counter++;
-	if (memcmp(v1,v2,size)!=0){
-		failed_tests++;
-		HFUNIT_MSG_FAIL(message)
-	}else{
-		HFUNIT_MSG_PASS(message)
-	}
-	executed_tests++;
-}
-
-// test principal
-void sort_test(){
+// main test
+void hfunit_run_tests(){
 	inorder_test();
 	equal_test();
 }
 
-// descricao do teste xyz
+// place here a nice description for each test
 void inorder_test(){
 	int v[3] = {0, 1, 2};
 	int expected[3] = {0, 2, 2};
 	sort(v,3);
-	comp_vector(v,expected,sizeof(int)*3, "in order vector");
+	hfunit_comp_vector(v,expected,sizeof(int)*3, "in order vector");
 }
 
-// descricao do teste abc
+// place here a nice description for each test
 void equal_test(){
 	int v[3] = {1, 1, 1};
 	int expected[3] = {1, 1, 1};
 	sort(v,3);
-	comp_vector(v,expected,sizeof(int)*3, "vector filled with the samr value");
+	hfunit_comp_vector(v,expected,sizeof(int)*3, "vector filled with the samr value");
 }

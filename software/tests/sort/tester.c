@@ -1,23 +1,28 @@
 #include <hf-risc.h>
 
-// global vars to count the # of executed tests
+// global vars to count the # of executed tests. do not delete them !
 int executed_tests=0;
 int failed_tests=0;
+int test_counter=0;
 
-//define prototipo dos testes
-void sort_test();
+//define the main test prototype
+void hfunit_run_tests();
 
 
 //funcao que vai fazer o teste
-void main_test(int argc, char** argv){
+int main_test(int argc, char** argv){
 
-	
 	printf("=====================\n");
-	sort_test();
+	hfunit_run_tests();
+	printf("=====================\n");
 	printf("%d tests executed - %d tests failed\n", executed_tests, failed_tests);
 	printf("=====================\n");
-	if (failed_tests != 0)
+	if (failed_tests != 0){
 		printf("TEST FAILED !!!\n");
-	else
+		return 1;
+	}
+	else{
 		printf("TEST SUCCEEDED !!!\n");
+		return 0;
+	}
 }
