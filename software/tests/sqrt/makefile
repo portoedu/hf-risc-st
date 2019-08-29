@@ -33,7 +33,7 @@ link:
 
 
 app: crt
-	$(GCC_$(ARCH)) -o sort.o $(HFOS_SW)/app/sort.c -I$(HFOS_SW)/include
+	#$(GCC_$(ARCH)) -o sort.o $(HFOS_SW)/app/sort.c -I$(HFOS_SW)/include
 	@$(MAKE) --no-print-directory link
 
 sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
