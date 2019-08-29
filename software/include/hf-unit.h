@@ -36,8 +36,8 @@ extern int test_counter;
 // comparison functions
 // =======================
 
-// compare int vectors
-int hfunit_comp_vector(int *v1,int *v2, int size, char* message){
+// compare int/char/short vectors. do not use this for vector of float or double. it wont work !
+int hfunit_comp_vector(void *v1,void *v2, int size, char* message){
 	test_counter++;
 	if (memcmp(v1,v2,size)!=0){
 		failed_tests++;
