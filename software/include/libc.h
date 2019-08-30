@@ -3,6 +3,8 @@
  * date:          09/2015
  * author:        Sergio Johann Filho <sergio.filho@pucrs.br>
  */
+#ifndef __LIBC_H
+#define __LIBC_H
 
 #include <stdarg.h>
 
@@ -91,6 +93,10 @@ int32_t random(void);
 void srand(uint32_t seed);
 int32_t printf(const int8_t *fmt, ...);
 int32_t sprintf(int8_t *out, const int8_t *fmt, ...);
+void print_float(float variable);
+void print_double(double variable);
+float f_copysign(float arg1, float arg2);
+double d_copysign(double arg1, double arg2);
 
 /*
 auxiliary routines
@@ -142,3 +148,6 @@ union double_long {
 	} l;
 	uint64_t ll;
 };
+
+
+#endif

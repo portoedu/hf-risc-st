@@ -1,3 +1,5 @@
+#ifndef __MALLOC_H
+#define __MALLOC_H
 typedef unsigned long			size_t;
 
 #define align4(x) ((((x) + 3) >> 2) << 2)
@@ -13,3 +15,5 @@ struct mem_block_s *last_free;
 void free(void *ptr);
 void *malloc(uint32_t size);
 void heap_init(uint32_t *zone, uint32_t len);
+
+#endif

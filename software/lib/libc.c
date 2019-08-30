@@ -1865,3 +1865,68 @@ int __nedf2 (double a1, double a2){
 
 	return (d1.ll != d2.ll);
 }
+
+void print_float(float variable){
+  char out[1024];
+	ftoa(variable, out, 9);
+	printf("%15s", out);
+
+}
+
+void print_double(double variable){
+  char out[1024];
+	ftoa(variable, out, 9);
+	printf("%15s", out);
+
+}
+
+float f_copysign(float arg1, float arg2){
+	float out;
+	if (arg2 >= 0){
+		if (arg1 >= 0){
+			out = arg1;
+			return out;
+		}
+		else{
+			out = (-1.0)*arg1;
+			return out;
+		}
+	}
+
+	else{
+		if (arg1 >= 0){
+			out = (-1.0)*arg1;
+			return out;
+		}
+		else{
+			out = arg1;
+			return out;
+		}
+	}
+}
+
+
+double d_copysign(double arg1, double arg2){
+	double out;
+	if (arg2 >= 0){
+		if (arg1 >= 0){
+			out = arg1;
+			return out;
+		}
+		else{
+			out = (-1.0)*arg1;
+			return out;
+		}
+	}
+
+	else{
+		if (arg1 >= 0){
+			out = (-1.0)*arg1;
+			return out;
+		}
+		else{
+			out = arg1;
+			return out;
+		}
+	}
+}
