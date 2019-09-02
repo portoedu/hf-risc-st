@@ -1,8 +1,28 @@
-#include <mat_type.h>
-#include <matrix.h>
+/*
+This matrix lib can work with 3 different types: fixed, float, and double.
+just change the variable MATRIX_TYPE in the makefile
+*/
+
+#include <mat_type.h> // this include define the type of the matrix
+#include <matrix.h>   // the functions under test are defined here
+#include <hf-risc.h>
+#include <hf-unit.h>
 
 
-int main_test(int argc, char* argv[]) {
+// list of individual tests
+//void sqrt1_test();
+//void sqrt4_test();
+void super_mat_test();
+
+// main test
+void hfunit_run_tests(){
+	super_mat_test();
+}
+
+// place here a nice description for each test
+// eu peguei um exemplao só p vcs verem como usar as funcoes
+// mas vcs vao ter q separar bem os teste. nao pode fazer assim !!!
+void super_mat_test() {
 
 struct Matrix M1, M2, M3, M4, M5, M6, M7;
 typ_var Multiplicator = val(5);

@@ -11,11 +11,6 @@ struct Matrix {
   typ_var str[NMAX][NMAX];
 };
 
-struct ekf_out {
-  struct Matrix states;
-  struct Matrix MatP;
-};
-
 
 struct Matrix set_values(int l, int c, typ_var s[]);
 void print_matrix(struct Matrix m);

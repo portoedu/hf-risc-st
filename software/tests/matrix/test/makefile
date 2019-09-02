@@ -2,6 +2,8 @@
 HFOS_ROOT=/home/ale/repos/gaph/anderson/hf-risc-st
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
+## use TFIXED, TFLOAT or TDOUBLE
+MATRIX_TYPE=TFLOAT
 
 include $(HFOS_SW)/defs.mk
 
@@ -34,22 +36,17 @@ link:
 
 
 app: crt
-	$(G++_$(ARCH)) -o new.o $(HFOS_SW)/lib/new.cc -I$(HFOS_SW)/include
-	$(G++_$(ARCH)) -o mat.o $(HFOS_SW)/lib/mat.cc -DTFLOAT -I$(HFOS_SW)/include
-	$(G++_$(ARCH)) -o mat_wrapper.o $(HFOS_SW)/lib/mat_wrapper.cc -DTFLOAT -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -o fixed.o $(HFOS_SW)lib/fixed.c -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include
 	@$(MAKE) --no-print-directory link
 
 sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
 	gcc -o hf_riscv_sim $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
 
 test: crt sim 
-	#$(GCC_$(ARCH)) -o fixed.o $(HFOS_SW)lib/fixed.c -I$(HFOS_SW)/include
-	#$(G++_$(ARCH)) -o new.o $(HFOS_SW)/lib/new.cc -I$(HFOS_SW)/include
-	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -DTFLOAT -I$(HFOS_SW)/include
-	#$(G++_$(ARCH)) -o mat_wrapper.o $(HFOS_SW)/lib/mat_wrapper.cc -DTFLOAT -I$(HFOS_SW)/include
-	$(GCC_$(ARCH)) -o mat_test.o mat_test.c -DTFLOAT  -I$(HFOS_SW)/include  # compila o teste
-	#$(GCC_$(ARCH)) -o tester.o tester.c -I$(HFOS_SW)/include  # compila o testador
-	@$(MAKE) --no-print-directory link
+	$(GCC_$(ARCH)) -o test.o test.c     -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o teste
+	$(GCC_$(ARCH)) -o tester.o tester.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o testador
+	@$(MAKE) --no-print-directory app
 	./hf_riscv_sim ./code.bin
 
 clean:
