@@ -34,6 +34,13 @@ extern int test_counter;
 #endif
 
 // =======================
+// util functions
+// =======================
+// debug function to print data in binary format
+// source: https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+void printBits(size_t const size, void const * const ptr);
+
+// =======================
 // comparison functions
 // =======================
 
