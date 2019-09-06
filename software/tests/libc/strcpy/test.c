@@ -12,7 +12,8 @@ void test2();
 void test3();
 void test4();
 void test5();
-
+void test6();
+void test7();
 
 // main test
 void hfunit_run_tests_strcpy(){
@@ -21,7 +22,8 @@ void hfunit_run_tests_strcpy(){
 	test3();
 	test4();
 	test5();
-
+	test6();
+	test7();
 }
 
 // teste simples copiando a string "teste 1" a partir de uma variável para uma variavel destino do tamanho exato
@@ -59,6 +61,22 @@ void test4(){
 void test5(){
 	int src = 1234;
 	char dstString[4];
-	strcpy(dstString, &src);
+	strcpy(dstString,(int8_t *) &src);
 	hfunit_comp_vector(dstString, &src, 4, "");
+}
+
+//teste passado uma string menor para um destino de tamanho maior
+void test6(){
+	char srcString[2] = "ab";
+	char dstString[5];
+	strcpy(dstString, srcString);
+	hfunit_comp_vector(dstString, srcString, 2, "");
+}
+
+//teste passado um char apenas ( não inicializado ) para um destino de mesmo tamanho - menor cópia possivel
+void test7(){
+	char srcString;
+	char dstString = 'a';
+	strcpy(&dstString, &srcString);
+	hfunit_comp_vector(&dstString, &srcString, 1, "");
 }
