@@ -26,65 +26,73 @@ void hfunit_run_tests_strlen(){
 	test7();
 }
 
-// teste com menor valor de string - 0
+/* teste com string vazia, para retornar o menor valor possível
+   de retorno da função.
+*/
 void test1(){
 	char string[] = "";
 	int expected = 0;
 	int received = strlen(string);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 1");
+	printf("\t%d ----- rc: %d\n", expected, received);
 }
 
-// passando um char apenas
+/* teste com um char, sem NULL no fim
+   retorno correto seria 1, mas o comportamento
+   esperado não é esse.
+*/
 void test2(){
-	char string = 'a';
+	char string = "a";
 	int expected = 1;
 	int received = strlen(&string);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 2");
-}
-
-//passando desta vez um pointer para inteiro de 32 bits e não char
-void test3(){
-	int integer[2] = {1, 2};
-	int expected = 2;
-	int received = strlen(integer);
 	printf("\t%d ----- rc: %d\n", expected, received);
-	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 3");
 }
 
-//passando um inteiro de 32 bits e não um char de 8 bits
+/*teste com um ponteio para um vetor de inteiros,
+  totalizando 64 bits. 
+*/
+void test3(){
+	int integer[2] = {-1,2};
+	int expected = 8;
+	int received = strlen(integer);
+	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 3");
+	printf("\t%d ----- rc: %d\n", expected, received);
+}
+
+//passando um inteiro de 32 bits com todos os bits em 1
+ 
 void test4(){
 	int integer = 2147483647;
-	int expected = 1; //por ser um valor, se for contar por bytes seria 4
+	int expected = 4; 
 	int received = strlen(&integer);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 4");
+	printf("\t%d ----- rc: %d\n", expected, received);
 }
 
-//passando apenas um inteiro
+//passando um inteiro de 32 bits com todos os bits em 0
 void test5(){
 	int integer = 0;
-	int expected = 1; //por ser um valor, se for contar por bytes seria 4
+	int expected = 1;
 	int received = strlen(&integer);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 5");
+	printf("\t%d ----- rc: %d\n", expected, received);
 }
 
-//teste extra, passando string de 10 digitos
+//teste extra, passando string com 10 caracteres numéricos
 void test6(){
 	char string[] = "0123456789";
 	int expected = 10;
 	int received = strlen(string);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 6");
+	printf("\t%d ----- rc: %d\n", expected, received);
 }
 
-//teste extra, passando string de tamanho 10 mas com valor em apenas 4 bytes
+//teste extra, passando string de tamanho 10 inicializada em apenas 4 posições
 void test7(){
 	char string[10] = "0123"; 
 	int expected = 4;
 	int received = strlen(string);
-	printf("\t%d ----- rc: %d\n", expected, received);
 	hfunit_comp_vector(&expected, &received, sizeof(int), "teste 7");
+	printf("\t%d ----- rc: %d\n", expected, received);
 }
