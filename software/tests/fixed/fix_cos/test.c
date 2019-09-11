@@ -34,7 +34,7 @@ void test1(){
 	fixed_t expected = -1;
 	fixed_t received = fix_cos(-FIX_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
-	printf("ex: %d - rc: %d \n\n", expected, received);
+	printf("ex: %d -suhduhsd rc: %d \n\n", expected, received);
 	printBits(8, &expected);
 	printBits(8, &received);
 }

@@ -3,6 +3,11 @@
 #include <hf-risc.h>
 #include <hf-unit.h>
 
+union dat { 
+	float f;
+	int l;
+};
+
 // function under test
 float ceil(float d);
 
@@ -30,6 +35,7 @@ void hfunit_run_tests_ceil(){
 
 // entrada com valor pequeno de float
 void test1(){
+
 	float expected = 1.0;
 	float received = ceil(0x00000001);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
@@ -48,52 +54,54 @@ void test3(){
 	float expected = -0.0;
 	float received = ceil(-0.9);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
-	printf("\n rec:");
-	print_float(received);
-	printf("\n ex:");
-	print_float(expected);
-	printf("\n");
 }
 
 //entrada com valor negativo bem próximo à 0.0
 void test4(){
 	float expected = -0.0;
-	float entrada = 0x80000001;
-	float received = ceil(entrada);
+	union dat entrada;
+	entrada.l = 0x80000001;
+	float received = ceil(entrada.f);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 	printf("\n rec:");
 	print_float(received);
-	printBits(4, &entrada);
 	printf("\n ex:");
 	print_float(expected);
-	printf("\n");
+	printf("\n entrada:");
+	print_float(entrada.f);
+	printf("\n\n");
 }
 
 //teste com valor bem próximo à 2
 void test5(){
 	float expected = 2.0;
-	float entrada = 0x3FFFFFFF;
-	float received = ceil(entrada);
+	union dat entrada;
+	entrada.l = 0x3FFFFFFF;
+	float received = ceil(entrada.f);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 	printf("\n rec:");
 	print_float(received);
 	printf("\n ex:");
 	print_float(expected);
-	printf("\n");
+	printf("\n entrada:");
+	print_float(entrada.f);
+	printf("\n\n");
 }
 
 //entrada negativa muito próxima à -2.0
 void test6(){
 	float expected = -1.0;
-	float entrada = 0xBFFFFFFF;
-	float received = ceil(entrada);
+	union dat entrada;
+	entrada.l = 0xBFFFFFFF;
+	float received = ceil(entrada.f);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 	printf("\n rec:");
 	print_float(received);
 	printf("\n ex:");
 	print_float(expected);
-	printf("\n");
-	printBits(4, &entrada);
+	printf("\n entrada:");
+	print_float(entrada.f);
+	printf("\n\n");
 }
 
 //teste com entrada próxima à 1.0 porém entrando valor em float e não em hexadecimal
@@ -101,12 +109,6 @@ void test7(){
 	float expected = 1.0;
 	float received = ceil(0.999998999899898);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
-	printf("\n rec:");
-	print_float(received);
-	printf("\n ex:");
-	print_float(expected);
-	printf("\n");
-	printBits(4, &expected);
 }
 
 //teste com entrada próxima à 0.0 porém entrando valor em float e não em hexadecimal
