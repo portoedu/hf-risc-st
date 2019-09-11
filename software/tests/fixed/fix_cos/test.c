@@ -31,66 +31,80 @@ void hfunit_run_tests_fix_cos(){
 
 //
 void test1(){
-	fixed_t expected = -1;
+	fixed_t expected = fix_val(-1);
 	fixed_t received = fix_cos(-FIX_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
-	printf("ex: %d -suhduhsd rc: %d \n\n", expected, received);
+	printf("ex: %ld - rc: %d \n\n", expected, received);
 	printBits(8, &expected);
 	printBits(8, &received);
 }
 
 //
 void test2(){
-	fixed_t expected = -1;
+	fixed_t expected = fix_val(-1);
 	fixed_t received = fix_cos(FIX_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
-	printf("ex: %d - rc: %d \n\n", expected, received);
+	printf("ex: %d - rc: %d \n\n", fix_int(expected), fix_int(received));
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test3(){
-	fixed_t expected = 1;
+	fixed_t expected = fix_val(1);
 	fixed_t received = fix_cos(0);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test4(){
-	fixed_t expected = 1;
+	fixed_t expected = fix_val(1);
 	fixed_t received = fix_cos(0.0000001);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test5(){
-	fixed_t expected = 0;
+	fixed_t expected = fix_val(0);
 	fixed_t received = fix_cos(FIX_HALF_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test6(){
-	fixed_t expected = 0;
+	fixed_t expected = fix_val(0.707);
 	fixed_t received = fix_cos(FIX_FOURTH_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test7(){
-	fixed_t expected = 0;
+	fixed_t expected = fix_val(1);
 	fixed_t received = fix_cos(FIX_TWO_PI);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
 
 //
 void test8(){
-	fixed_t expected = 0;
+	fixed_t expected = fix_val(-0.4);
 	fixed_t received = fix_cos(2);
 	hfunit_comp_vector(&received, &expected, 8, "");
 	printf("ex: %d - rc: %d \n\n", expected, received);
+	printBits(8, &expected);
+	printBits(8, &received);
 }
