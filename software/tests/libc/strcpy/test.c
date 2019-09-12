@@ -66,7 +66,7 @@ void test4(){
 void test5(){
 	int src = 1234;
 	char dstString[4];
-	strcpy(dstString,(int8_t *) &src);
+	strcpy(dstString,&src);
 	hfunit_comp_vector(dstString, &src, 4, "");
 }
 
