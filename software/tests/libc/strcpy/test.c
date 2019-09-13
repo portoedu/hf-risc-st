@@ -6,10 +6,6 @@ Tabela de equivalencia
 			validas		invalidas
 entradas	char[]		não char[]				
 			Aceito		não é um char[]
-
-Dentro das funções se o parametro passado 
-não está no intervalo -pi<0<pi, o valor 
-2pi eh acrescentado ou diminuido dele
 */
 
 /* Tabela de testes
