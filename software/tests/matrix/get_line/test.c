@@ -26,9 +26,7 @@ void hfunit_run_tests(){
 	teste4();
 }
 
-// place here a nice description for each test
-// eu peguei um exemplao só p vcs verem como usar as funcoes
-// mas vcs vao ter q separar bem os teste. nao pode fazer assim !!!
+//Teste inicial setando uma matriz 4x4 e pegando o número de linhas dela
 void teste1() {
 
 struct Matrix M1;
@@ -47,6 +45,7 @@ printf("Linhas: %d\n", l1);
 
 }
 
+//Teste com uma matriz 1x1, matriz pequena, e pegando o número de linhas dela
 void teste2() {
 
 struct Matrix M1;
@@ -65,6 +64,7 @@ printf("Linhas: %d\n", l1);
 
 }
 
+//Teste com a menor matriz possível, 0x0, e pegando o número de linahs dela
 void teste3() {
 
 struct Matrix M1;
@@ -81,11 +81,13 @@ printf("Linhas: %d\n", l1);
 
 }
 
+//Teste pegando uma matriz com número de linhas diferente do número de colunas e pegando o número de linhas dela
 void teste4() {
 
+typ_var val1[20] = {val(1),val(2),val(3),val(4),val(5),val(6),val(7),val(8),val(9),val(10),val(11),val(12),val(13),val(14),val(15),val(16), val(17), val(18), val(19), val(20)};
 struct Matrix M1;
 
-M1 = set_values(10, 2, val(0));
+M1 = set_values(10, 2, val1);
 //----------------------------FUNCTIONS TESTS-----------------------------------
 
 printf("Matrix 1 is:\n");

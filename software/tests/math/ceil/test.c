@@ -33,7 +33,7 @@ void hfunit_run_tests_ceil(){
 	test8();
 }
 
-// entrada com valor pequeno de float
+// Teste com uma entrada float com valor bem pequeno
 void test1(){
 
 	float expected = 1.0;
@@ -41,7 +41,7 @@ void test1(){
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 }
 
-// entrada com valor já inteiro
+// Teste com uma entrada com valor já em inteiro
 void test2(){
 	float expected = 1.0;
 	float entrada = 1.0;
@@ -49,14 +49,14 @@ void test2(){
 	hfunit_comp_float(received,expected, "");
 }
 
-// entrada com valor negativo, note que para passar o valor esperado teve de ser -0.0!
+// Teste com entrada com valor negativo, note que para passar no teste o valor esperado teve de ser -0.0!
 void test3(){
 	float expected = -0.0;
 	float received = ceil(-0.9);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 }
 
-//entrada com valor negativo bem próximo à 0.0
+//Teste com valor negativo extremamente próximo à 0.0, -1.40129846432481707092372958329E-45
 void test4(){
 	float expected = -0.0;
 	union dat entrada;
@@ -72,7 +72,7 @@ void test4(){
 	printf("\n\n");
 }
 
-//teste com valor bem próximo à 2
+//teste com valor bem próximo à 2, 1.99999988079071044921875
 void test5(){
 	float expected = 2.0;
 	union dat entrada;
@@ -88,7 +88,7 @@ void test5(){
 	printf("\n\n");
 }
 
-//entrada negativa muito próxima à -2.0
+//entrada negativa muito próxima à -2.0, -1.99999988079071044921875E0
 void test6(){
 	float expected = -1.0;
 	union dat entrada;
@@ -104,14 +104,14 @@ void test6(){
 	printf("\n\n");
 }
 
-//teste com entrada próxima à 1.0 porém entrando valor em float e não em hexadecimal
+//teste extra, com entrada próxima à 1.0 porém entrando valor em float e não em hexadecimal
 void test7(){
 	float expected = 1.0;
 	float received = ceil(0.999998999899898);
 	hfunit_comp_vector(&received, &expected, sizeof(float), "");
 }
 
-//teste com entrada próxima à 0.0 porém entrando valor em float e não em hexadecimal
+//teste extra com entrada próxima à 0.0 porém entrando valor em float e não em hexadecimal
 void test8(){
 	float expected = 1.0;
 	float received = ceil(0.000000002);
