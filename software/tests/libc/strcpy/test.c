@@ -1,5 +1,15 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
+/* Tabela de Limites
+	Entrada   	        Saída
+    char[7] ->[7]      copiado
+    ".." ->  [7]       copiado
+    char[7] -> [5]     copiado (invade)
+    char -> [1]        copiado
+    int -> char[]      entrada n é char[]
+    char[2]-> [5]      copiado
+    char -> char       copiado
+*/
 #include <hf-risc.h>
 #include <hf-unit.h>
 

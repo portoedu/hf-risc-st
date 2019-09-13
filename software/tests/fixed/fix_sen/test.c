@@ -1,5 +1,20 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
+
+/* Tabela de Limites
+	Entrada    Saída
+	-pi          0
+     pi          0
+     0           0
+    0,00001      0
+     pi/2        1
+     pi/4      0,707
+     2pi         0
+     2         0,909
+     3pi/2      -1
+*/
+
+
 #include <hf-risc.h>
 #include <hf-unit.h>
 #include <fixed.h>
@@ -31,7 +46,7 @@ void hfunit_run_tests_fix_sin(){
 	test9();
 }
 
-//Teste com o valor de PI, que é um dos valores de entrada que são testados
+//Teste com o valor de -PI, que é um dos valores de entrada que são testados
 void test1(){
 	fixed_t expected = fix_val(0);
 	fixed_t received = fix_sin(-FIX_PI);
@@ -42,7 +57,7 @@ void test1(){
 	printf("\n\n");
 }
 
-//Teste semelhante ao anterior, dessa vez com o valor positivo, para observarmos se há diferença
+//Teste semelhante ao anterior, dessa vez com o valor positivo, já que é outro valor limite
 void test2(){
 	fixed_t expected = fix_val(0);
 	fixed_t received = fix_sin(FIX_PI);
@@ -64,7 +79,7 @@ void test3(){
 	printf("\n\n");
 }
 
-//Teste com um valor bem pŕoximo de 0.
+//Teste com um valor bem pŕoximo de 0, para testar se há diferença.
 void test4(){
 	fixed_t expected = fix_val(0);
 	fixed_t received = fix_sin(0.0000001);

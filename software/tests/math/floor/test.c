@@ -2,6 +2,17 @@
 //T1 Teste e Confiabilidade de Sistemas
 #include <hf-risc.h>
 #include <hf-unit.h>
+/* Tabela de Limites
+	Entrada   	        Saída
+     0x00000001            0
+     1                     1
+     -0,9                 -1
+     0x80000001           -1
+     0x3FFFFFFF            1
+	 0xBFFFFFFF           -2
+     0,9998                0
+     0,002                 0
+*/
 
 union dat { 
 	float f;

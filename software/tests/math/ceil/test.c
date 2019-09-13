@@ -1,5 +1,17 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
+/* Tabela de Limites
+	Entrada   	        Saída
+     0x00000001            1
+     1                     1
+     -0,9               -0.0
+     0x80000001         -0.0
+     0x3FFFFFFF         -2
+	 0xBFFFFFFF         -1
+     0,9998              1
+     0,002               1
+*/
+
 #include <hf-risc.h>
 #include <hf-unit.h>
 

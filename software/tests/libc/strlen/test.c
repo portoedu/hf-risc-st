@@ -1,5 +1,15 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
+/* Tabela de Limites
+	Entrada   	  Saída
+	   ""    	    0
+      "a"    	    1
+      int[]  	 não é char[]
+	  int		 não é char[]
+ char[]"0123..."    10
+ char[10]="0123"    4
+
+*/
 #include <hf-risc.h>
 #include <hf-unit.h>
 

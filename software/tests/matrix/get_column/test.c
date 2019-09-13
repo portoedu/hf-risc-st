@@ -3,6 +3,14 @@ This matrix lib can work with 3 different types: fixed, float, and double.
 just change the variable MATRIX_TYPE in the makefile
 */
 
+/* Tabela de Limites
+	Entrada   	        Saída
+     4x4                   4
+     1x1                   1
+     0x0                   0
+     10x2                  2
+*/
+
 #include <mat_type.h> // this include define the type of the matrix
 #include <matrix.h>   // the functions under test are defined here
 #include <hf-risc.h>
