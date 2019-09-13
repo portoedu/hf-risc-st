@@ -2,7 +2,16 @@
 //T1 Teste e Confiabilidade de Sistemas
 #include <hf-risc.h>
 #include <hf-unit.h>
-/* Tabela de Limites
+
+/*
+Tabela de equivalencia
+			validas		invalidas
+entradas	float		não float				
+			Aceito		não é um float
+*/
+
+
+/* Tabela de testes
 	Entrada   	        Saída
      0x00000001            0
      1                     1

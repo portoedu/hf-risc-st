@@ -1,6 +1,15 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
-/* Tabela de Limites
+
+/*
+Tabela de equivalencia
+			validas		invalidas
+entradas	float		não float				
+			Aceito		não é um float
+*/
+
+
+/* Tabela de testes
 	Entrada   	        Saída
      0x00000001            1
      1                     1

@@ -1,7 +1,20 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
 
-/* Tabela de Limites
+
+/*
+Tabela de equivalencia
+			validas		invalidas
+entrada		fixed		não fixed				
+			Aceito		não é um valor fixed
+
+Dentro das funções se o parametro passado 
+não está no intervalo -pi<0<pi, o valor 
+2pi eh acrescentado ou diminuido dele
+*/
+
+
+/* Tabela de testes
 	Entrada    Saída
 	-pi          0
      pi          0

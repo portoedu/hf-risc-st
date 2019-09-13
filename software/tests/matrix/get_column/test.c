@@ -3,7 +3,15 @@ This matrix lib can work with 3 different types: fixed, float, and double.
 just change the variable MATRIX_TYPE in the makefile
 */
 
-/* Tabela de Limites
+/*
+Tabela de equivalencia
+			validas		invalidas
+entradas	Matriz		não matriz
+tamanho		>= 0 		< 0				
+			Aceito		não aceito
+*/
+
+/* Tabela de testes
 	Entrada   	        Saída
      4x4                   4
      1x1                   1

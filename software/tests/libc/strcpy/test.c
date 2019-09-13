@@ -1,6 +1,18 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
-/* Tabela de Limites
+
+/*
+Tabela de equivalencia
+			validas		invalidas
+entradas	char[]		não char[]				
+			Aceito		não é um char[]
+
+Dentro das funções se o parametro passado 
+não está no intervalo -pi<0<pi, o valor 
+2pi eh acrescentado ou diminuido dele
+*/
+
+/* Tabela de testes
 	Entrada   	        Saída
     char[7] ->[7]      copiado
     ".." ->  [7]       copiado

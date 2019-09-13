@@ -1,6 +1,14 @@
 //Eduardo Porto e Johannes Portz
 //T1 Teste e Confiabilidade de Sistemas
-/* Tabela de Limites
+
+/*
+Tabela de equivalencia
+			validas		invalidas
+entradas	char[]		não char[]				
+			Aceito		não é um char[]
+*/
+
+/* Tabela de testes
 	Entrada   	  Saída
 	   ""    	    0
       "a"    	    1
