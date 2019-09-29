@@ -1,5 +1,5 @@
 # mude somente essa linha abaixo para apontar p o diretorio do hellfireos
-HFOS_ROOT=/home/16104013/Downloads/hf-risc-st
+HFOS_ROOT=/home/ubuntu/Documents/git/hf-risc-st
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
 ## use TFIXED, TFLOAT or TDOUBLE

@@ -36,10 +36,10 @@ void test7();
 // main test
 void hfunit_run_tests_strlen(){
 	test1();
-	test2();
-	test3();
-	test4();
-	test5();
+	//test2();
+	//test3();
+	//test4();
+	//test5();
 	test6();
 	test7();
 }

@@ -58,7 +58,8 @@ print_matrix(M1);
 
 int l1 = get_column(M1);
 printf("Colunas: %d\n", l1);
-
+int expected = 4;
+hfunit_comp_vector(&expected, &l1, sizeof(int), "teste");
 }
 
 //Teste setando uma matriz 1x1, valor pequeno, e pegando o número de colunas
@@ -77,7 +78,8 @@ print_matrix(M1);
 
 int l1 = get_column(M1);
 printf("Colunas: %d\n", l1);
-
+int expected = 1;
+hfunit_comp_vector(&expected, &l1, sizeof(int), "teste");
 }
 
 //Teste com o menos valor possível de tamanho de matriz 0x0, e pegando o número de colunas
@@ -94,7 +96,8 @@ print_matrix(M1);
 
 int l1 = get_column(M1);
 printf("Colunas: %d\n", l1);
-
+int expected = 0;
+hfunit_comp_vector(&expected, &l1, sizeof(int), "teste");
 }
 
 //Teste extra onde o número de colunas é diferente do número de linhas
@@ -110,5 +113,6 @@ print_matrix(M1);
 
 int l1 = get_column(M1);
 printf("Colunas: %d\n", l1);
-
+int expected = 2;
+hfunit_comp_vector(&expected, &l1, sizeof(int), "teste");
 }

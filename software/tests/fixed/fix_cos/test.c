@@ -43,13 +43,13 @@ void test8();
 // main test
 void hfunit_run_tests_fix_cos(){
 	test1();
-	test2();
+	//test2();
 	test3();
 	test4();
-	test5();
-	test6();
+	//test5();
+	//test6();
 	test7();
-	test8();
+	//test8();
 }
 
 //Teste com o valor de PI, que é um dos valores da tabela de limites
