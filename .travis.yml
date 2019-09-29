@@ -8,6 +8,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-6
+    - cppcheck
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 script:
