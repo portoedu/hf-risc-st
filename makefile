@@ -3,4 +3,4 @@ ALL = test
 all: $(ALL)
 
 test: 
-    bash test.sh
+	bash test.sh
