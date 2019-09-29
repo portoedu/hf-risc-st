@@ -1,22 +1,22 @@
 #!/bin/bash
-#math ---------------------------
+
 cd ./software/tests/math/ceil/
 make test
 cd ../floor/
 make test
-#libc ---------------------------
+
 cd ../..
 cd ./libc/strcpy/
 make test
 cd ../strlen/
 make test
-#fixed --------------------------
+
 cd ../..
 cd ./fixed/fix_cos/
 make test
 cd ../fix_sen/
 make test
-#matrix -------------------------
+
 cd ../..
 cd ./matrix/get_line/
 make test
