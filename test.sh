@@ -1,3 +1,4 @@
+#!/bin/bash
 #math ---------------------------
 cd ./software/tests/math/ceil/
 make test
