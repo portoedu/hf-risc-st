@@ -12,9 +12,3 @@ install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 script:
   - make
-ALL = test
-
-all: $(ALL)
-
-test: 
-    bash test.sh
