@@ -1,5 +1,9 @@
 #!/bin/bash
 
+tar xvzf riscv-gcc.tar.gz  --strip-components 2
+echo "export PATH=/home/travis/build/portoedu/hf-risc-st/riscv-elf/gcc-8.1.0/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+
 cd ./software/tests/math/ceil/
 make test
 cd ../floor/
