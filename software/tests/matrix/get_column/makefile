@@ -2,8 +2,6 @@
 HFOS_ROOT=/home/travis/build/portoedu/hf-risc-st
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
-## use TFIXED, TFLOAT or TDOUBLE
-MATRIX_TYPE=TFLOAT
 
 include $(HFOS_SW)/defs.mk
 
@@ -36,18 +34,17 @@ link:
 
 
 app: crt
-	$(GCC_$(ARCH)) -o fixed.o $(HFOS_SW)lib/fixed.c -I$(HFOS_SW)/include
-	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -I$(HFOS_SW)/include
 	@$(MAKE) --no-print-directory link
 
 sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
-	gcc -o hf_riscv_sim $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
+	gcc -o hf_riscv_sim -fprofile-arcs -ftest-coverage $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
 
 test: crt sim 
-	$(GCC_$(ARCH)) -o test.o test.c     -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o teste
-	$(GCC_$(ARCH)) -o tester.o tester.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o testador
-	@$(MAKE) --no-print-directory app
+	$(GCC_$(ARCH)) -o test.o test.c -I$(HFOS_SW)/include  # compila o teste
+	$(GCC_$(ARCH)) -o tester.o tester.c -I$(HFOS_SW)/include  # compila o testador
+	@$(MAKE) --no-print-directory link
 	./hf_riscv_sim ./code.bin
 
 clean:
-	-rm -rf *~ *.o *.elf *.map *.lst *.sec *.cnt *.txt *.bin *.vhd
+	-rm -rf *~ *.o *.elf *.map *.lst *.sec *.cnt *.txt *.bin *.vhd *.gc*
