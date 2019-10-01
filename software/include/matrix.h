@@ -4,7 +4,7 @@
 #include <mat_type.h>
 #define NMAX 30
 
-
+typedef float typ_var;
 struct Matrix {
   int line;
   int column;
