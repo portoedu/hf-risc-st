@@ -44,8 +44,8 @@ sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
 	gcc -o hf_riscv_sim -pg -fprofile-arcs -ftest-coverage $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
 
 test: crt sim 
-	$(GCC_$(ARCH)) -o test.o test.c -I$(HFOS_SW)/include  # compila o teste
-	$(GCC_$(ARCH)) -o tester.o tester.c -I$(HFOS_SW)/include  # compila o testador
+	$(GCC_$(ARCH)) -o test.o test.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o teste
+	$(GCC_$(ARCH)) -o tester.o tester.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include  # compila o testador
 	@$(MAKE) --no-print-directory link
 	./hf_riscv_sim ./code.bin
 
