@@ -9,6 +9,7 @@ addons:
     packages:
     - g++-6
     - valgrind
+    - cppcheck
 before_install:
   # download riscv32 compiler
   - chmod +x ./tools/download-riscv32-gcc-gdrive.sh
