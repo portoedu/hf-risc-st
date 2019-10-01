@@ -18,7 +18,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../..
 cd ./libc/strcpy/
@@ -29,7 +29,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../strlen/
 make test
@@ -39,7 +39,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../..
 cd ./fixed/fix_cos/
@@ -50,7 +50,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../fix_sen/
 make test
@@ -60,7 +60,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../..
 cd ./matrix/get_line/
@@ -71,7 +71,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../get_column/
 make test
@@ -81,4 +81,4 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
