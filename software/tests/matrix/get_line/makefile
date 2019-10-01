@@ -37,6 +37,7 @@ link:
 
 app: crt
 	$(GCC_$(ARCH)) -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include
 	@$(MAKE) --no-print-directory link
 
 sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
