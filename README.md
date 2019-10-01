@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/portoedu/hf-risc-st.svg?branch=master)](https://travis-ci.org/portoedu/hf-risc-st)
+
 # HF-RISC SoC
 
 ---
