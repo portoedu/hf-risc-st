@@ -8,7 +8,7 @@ gprof ./hf_riscv_sim gmon.out >gprof.log
 head cppcheck.log -n 200
 head gcov.log -n 200
 head gprof.log -n 200
-wait
+
 
 cd ../floor/
 make test
