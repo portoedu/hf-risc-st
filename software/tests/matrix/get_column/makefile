@@ -39,7 +39,7 @@ app: crt
 	@$(MAKE) --no-print-directory link
 
 sim: $(HFOS_ROOT)/tools/sim/hf_riscv_sim/hf_riscv_sim.c
-	gcc -o hf_riscv_sim -fprofile-arcs -ftest-coverage $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
+	gcc -o hf_riscv_sim -pg -fprofile-arcs -ftest-coverage $(HFOS_ROOT)/tools/sim/hf_riscv_sim/*.c
 
 test: crt sim 
 	$(GCC_$(ARCH)) -o test.o test.c -I$(HFOS_SW)/include  # compila o teste
