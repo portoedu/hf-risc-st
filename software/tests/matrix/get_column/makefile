@@ -16,6 +16,7 @@ crt:
 	$(GCC_$(ARCH)) -o math.o $(HFOS_SW)/lib/math.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o malloc.o $(HFOS_SW)/lib/malloc.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o hf-unit.o $(HFOS_SW)/lib/hf-unit.c -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -I$(HFOS_SW)/include
 
 link:
 	$(LD_$(ARCH)) -T$(HFOS_SW)lib/$(ARCH)/$(LD_SCRIPT) -Map test.map -N -o test.elf *.o
