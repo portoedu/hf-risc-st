@@ -1,44 +1,84 @@
 #!/bin/bash
 
 cd ./software/tests/math/ceil/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../floor/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../..
 cd ./libc/strcpy/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../strlen/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../..
 cd ./fixed/fix_cos/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../fix_sen/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../..
 cd ./matrix/get_line/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
 
 cd ../get_column/
-cppcheck test.c
 make test
-gcov hf_riscv_sim.c
+cppcheck test.c > cppcheck.log
+gcov hf_riscv_sim.c >gcov.log
+gprof ./hf_riscv_sim gmon.out >gprof.log
+head cppcheck.log -n 200
+head gcov.log -n 200
+head gprof.log -n 200
+wait
