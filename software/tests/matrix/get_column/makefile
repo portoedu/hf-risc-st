@@ -2,6 +2,7 @@
 #HFOS_ROOT=/home/travis/build/portoedu/hf-risc-st
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
+MATRIX_TYPE=TFLOAT
 
 include $(HFOS_SW)/defs.mk
 
