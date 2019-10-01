@@ -8,7 +8,15 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-6
-    - cppcheck
+    - valgrind
+before_install:
+  # download riscv32 compiler
+  - chmod +x ./tools/download-riscv32-gcc-gdrive.sh
+  - ./tools/download-riscv32-gcc-gdrive.sh
+  - tar xvzf riscv-gcc.tar.gz --strip-components 2
+  - export PATH=$PWD/riscv-elf/gcc-8.1.0/bin:$PATH
+  - export HFOS_ROOT=$PWD
+  - echo $PWD
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 script:
