@@ -36,7 +36,7 @@ link:
 
 
 app: crt
-	$(GCC_$(ARCH)) -I$(HFOS_SW)/include
+	$(GCC_$(ARCH)) -o fixed.o $(HFOS_SW)lib/fixed.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o matrix.o $(HFOS_SW)/lib/matrix.c -D$(MATRIX_TYPE) -I$(HFOS_SW)/include
 	@$(MAKE) --no-print-directory link
 
