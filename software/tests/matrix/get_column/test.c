@@ -113,6 +113,6 @@ print_matrix(M1);
 
 int l1 = get_column(M1);
 printf("Colunas: %d\n", l1);
-int expected = 3;
+int expected = 2;
 hfunit_comp_vector(&expected, &l1, sizeof(int), "teste");
 }
