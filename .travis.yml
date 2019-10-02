@@ -21,4 +21,11 @@ before_install:
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 script:
-  - make
+  - cd ./software/tests/matrix/get_column/
+  - make test
+  - cppcheck test.c > cppcheck.log
+  - gcov hf_riscv_sim.c >gcov.log
+  - gprof ./hf_riscv_sim gmon.out >gprof.log
+  - head cppcheck.log -n 200
+  - head gcov.log -n 200
+  - head gprof.log -n 200
