@@ -15,7 +15,7 @@ int main_test(int argc, char** argv){
 	printf("=====================\n");
 	hfunit_run_tests_ceil();
 	printf("=====================\n");
-	printf("%d tests executed - %d tests failed\n", executed_tests, failed_tests);
+	printf("%d tests executed - %d tests failed\n", test_counter, failed_tests);
 	printf("=====================\n");
 	if (failed_tests != 0){
 		printf("TEST FAILED !!!\n");
